@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { LogOut } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { signOut } from "@/app/actions";
 
 export default async function AppLayout({
@@ -51,10 +52,11 @@ export default async function AppLayout({
               </Link>
             </div>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <span className="hidden text-sm text-muted-foreground sm:inline">
               {user.email}
             </span>
+            <ThemeToggle />
             <form action={signOut}>
               <Button
                 type="submit"
